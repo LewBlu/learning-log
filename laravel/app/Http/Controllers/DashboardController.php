@@ -9,6 +9,6 @@ class DashboardController extends Controller
     public function index()
     {
         $tags = Tag::all();
-        return view('dashboard', ['tags' => $tags]);
+        return view('dashboard.index', ['tags' => $tags]);
     }
 }
