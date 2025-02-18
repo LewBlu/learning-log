@@ -1,13 +1,4 @@
 <x-app-layout>
-   <x-tag.list :tags="$tags"></x-tag.list>
-
-    <div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            {{-- <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    Create a model using artisan
-                </div>
-            </div> --}}
-        </div>
-    </div>
+    <x-tag.list :tags="$tags"></x-tag.list>
+    <x-article.list></x-article.list>
 </x-app-layout>
