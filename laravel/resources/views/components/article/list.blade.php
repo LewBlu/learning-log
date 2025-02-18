@@ -4,6 +4,9 @@
         <div class="p-6 text-gray-900 dark:text-gray-100">
             {{ $article->title }}
         </div>
+        <div class="mb-3 ml-6">
+            <x-tag.list :tags="$article->tags"></x-tag.list>
+        </div>
     </div>
     @endforeach
 </div>

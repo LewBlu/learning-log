@@ -10,7 +10,7 @@ class DashboardController extends Controller
     public function index()
     {
         $tags = Tag::all();
-        $articles = Article::all();
+        $articles = Article::with('tags')->get();
         return view('dashboard.index', [
             'tags' => $tags,
             'articles' => $articles,

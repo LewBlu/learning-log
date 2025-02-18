@@ -3,8 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 
 class ArticleSeeder extends Seeder
@@ -14,6 +13,8 @@ class ArticleSeeder extends Seeder
      */
     public function run(): void
     {
-        Article::factory()->count(5)->create();
+        Article::factory()
+            ->has(Tag::factory())
+            ->count(5)->create();
     }
 }
