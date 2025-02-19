@@ -14,7 +14,7 @@ class All extends Component
     public function render()
     {
         return view('livewire.article.all')->with([
-            'articles' => Article::with('tags')->paginate(2)
+            'articles' => Article::with('tags')->paginate(10)
         ]);
     }
 }
