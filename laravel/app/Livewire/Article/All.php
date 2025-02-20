@@ -37,6 +37,6 @@ class All extends Component
                 });
             })
             ->with('tags')
-            ->get();
+            ->paginate(10);
     }
 }

@@ -14,6 +14,6 @@
     </div>
     @endforeach
     <div class="col-span-full">
-        {{-- {{ $articles->links() }} --}}
+        {{ $articles->links() }}
     </div>
 </div>
