@@ -13,8 +13,12 @@ class ArticleSeeder extends Seeder
      */
     public function run(): void
     {
+        if(!Tag::exists()) {
+            Tag::factory()->create();
+        }
+
         Article::factory()
-            ->has(Tag::factory())
+            ->hasAttached(Tag::inRandomOrder()->first())
             ->count(5)->create();
     }
 }
