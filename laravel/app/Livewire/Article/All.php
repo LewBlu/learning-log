@@ -13,7 +13,7 @@ class All extends Component
 {
     use WithPagination;
 
-    public ?string $selectedTag = null;
+    public array $selectedTags = [];
 
     public function render()
     {
@@ -25,15 +25,20 @@ class All extends Component
     #[On('article-filter')]
     public function updateSelectedTag(string $tagId)
     {
-        $this->selectedTag = $this->selectedTag == $tagId ? null : $tagId;
+        $alreadySelected = array_search($tagId, $this->selectedTags);
+        if($alreadySelected !== false) {
+            unset($this->selectedTags[$alreadySelected]);
+        } else {
+            $this->selectedTags[] = $tagId;
+        }
     }
 
     public function getArticles()
     {
         return Article::query()
-            ->when(!is_null($this->selectedTag), function(Builder $query){
+            ->when(count($this->selectedTags), function(Builder $query){
                 return $query->whereHas('tags',function (Builder $query) {
-                    return $query->where('id', $this->selectedTag);
+                    return $query->whereIn('id', $this->selectedTags);
                 });
             })
             ->with('tags')
