@@ -6,9 +6,7 @@
         </div>
         <div class="mb-3 pl-6">
             @foreach($article->tags as $tag)
-            <div class="bg-gray-300 text-gray-800 text-sm px-3 rounded-full dark:bg-gray-700 dark:text-gray-300 size-fit">
-                {{ $tag->name }}
-            </div>
+            <livewire:tag.individual :key="$article->id.$tag->id" :tag="$tag"/>
             @endforeach
         </div>
     </div>
