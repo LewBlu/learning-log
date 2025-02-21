@@ -23,9 +23,9 @@ class All extends Component
     }
 
     #[On('article-filter')]
-    public function updateSelectedTag(?string $tag)
+    public function updateSelectedTag(string $tagId)
     {
-        $this->selectedTag = $this->selectedTag == $tag ? null : $tag;
+        $this->selectedTag = $this->selectedTag == $tagId ? null : $tagId;
     }
 
     public function getArticles()
@@ -33,7 +33,7 @@ class All extends Component
         return Article::query()
             ->when(!is_null($this->selectedTag), function(Builder $query){
                 return $query->whereHas('tags',function (Builder $query) {
-                    return $query->where('name', $this->selectedTag);
+                    return $query->where('id', $this->selectedTag);
                 });
             })
             ->with('tags')

@@ -14,4 +14,10 @@ class Individual extends Component
     {
         return view('livewire.tag.individual');
     }
+
+    public function toggleActive(): void
+    {
+        $this->isActive = !$this->isActive;
+        $this->dispatch('article-filter', tagId: $this->tag->id);
+    }
 }
