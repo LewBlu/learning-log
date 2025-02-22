@@ -14,6 +14,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('article')->group(function () {
         Route::get('/create', [ArticleController::class, 'create'])->name('article.create');
+        Route::get('/{article}', [ArticleController::class, 'show'])->name('article.show');
     });
 });
 
