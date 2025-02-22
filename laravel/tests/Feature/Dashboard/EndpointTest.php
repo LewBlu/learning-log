@@ -2,8 +2,8 @@
 
 use App\Models\User;
 
-describe('dashboard endpoints', function(){
-    describe('with permission', function() {
+describe('Dashboard endpoints', function(){
+    describe('With permission', function() {
         beforeEach(function () {
             $this->user = User::factory()->create();
         });
@@ -15,7 +15,7 @@ describe('dashboard endpoints', function(){
         });
     });
 
-    describe('without permission', function() {
+    describe('Without permission', function() {
         test('index', function () {
             $this->get(route('dashboard.index'))
                 ->assertRedirect(route('login'));
