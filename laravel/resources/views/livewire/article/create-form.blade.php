@@ -18,7 +18,7 @@
         @foreach($tags as $tag)
         <li>
             <input type="checkbox" id="{{ $tag->id }}" wire:model="form.selectedTags" value="{{ $tag->id }}" class="hidden peer">
-            <label for="{{ $tag->id }}" class="bg-gray-300 text-gray-800 text-sm px-3 rounded-full size-fit cursor-pointer peer-checked:bg-indigo-700 peer-checked:text-white">
+            <label for="{{ $tag->id }}" class="bg-gray-300 text-gray-800 text-sm px-3 rounded-full size-fit cursor-pointer peer-checked:bg-indigo-700 peer-checked:text-gray-100">
                 {{ $tag->name }}
             </label>
         </li>
