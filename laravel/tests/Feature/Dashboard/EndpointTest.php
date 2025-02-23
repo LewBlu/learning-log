@@ -2,7 +2,7 @@
 
 use App\Models\User;
 
-describe('Dashboard endpoints', function(){
+describe('Dashboard Endpoints', function(){
     describe('With permission', function() {
         beforeEach(function () {
             $this->user = User::factory()->create();
