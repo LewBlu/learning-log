@@ -3,9 +3,7 @@
 namespace App\Livewire\Article;
 
 use App\Livewire\Forms\ArticleForm;
-use App\Models\Article;
-use Illuminate\Support\Facades\Auth;
-
+use App\Models\Tag;
 use Livewire\Component;
 
 class CreateForm extends Component
@@ -14,18 +12,14 @@ class CreateForm extends Component
 
     public function render()
     {
-        return view('livewire.article.create-form');
+        return view('livewire.article.create-form', [
+            'tags' => Tag::all(),
+        ]);
     }
 
     public function save()
     {
-        $this->validate();
-
-        $article = Article::create([
-            ...$this->form->all(),
-            'owner_id' => Auth::id(),
-        ]);
-
+        $article = $this->form->store();
         return redirect()->route('article.show', ['article' => $article->id]);
     }
 }
