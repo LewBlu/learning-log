@@ -12,8 +12,6 @@
 
         <p class="p-6 text-gray-900 dark:text-gray-100">{{ $article->description}}</p>
 
-        <pre>
-            <code class="text-gray-900 dark:text-gray-100">{{ $article->example }}</code>
-        </pre>
+        <div id="editor" class="editor-readonly">{{ $article->example }}</div>
     </div>
 </x-app-layout>

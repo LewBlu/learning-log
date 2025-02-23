@@ -9,12 +9,9 @@
         <textarea  wire:model="form.description" id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:focus:ring-indigo-500 dark:focus:border-indigo-500"></textarea>
     </div>
 
-    <div class="mb-3">
-        <label for="example" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Example</label>
-        <textarea wire:model="form.example" id="example" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:focus:ring-indigo-500 dark:focus:border-indigo-500"></textarea>
-    </div>
+    <div id="editor" wire:ignore></div>
 
-    <ul class="flex flex-wrap gap-2 mb-3">
+    <ul class="flex flex-wrap gap-2 my-3">
         @foreach($tags as $tag)
         <li>
             <input type="checkbox" id="{{ $tag->id }}" wire:model="form.selectedTags" value="{{ $tag->id }}" class="hidden peer">

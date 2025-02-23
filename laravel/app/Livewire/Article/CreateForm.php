@@ -4,6 +4,7 @@ namespace App\Livewire\Article;
 
 use App\Livewire\Forms\ArticleForm;
 use App\Models\Tag;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class CreateForm extends Component
@@ -15,6 +16,12 @@ class CreateForm extends Component
         return view('livewire.article.create-form', [
             'tags' => Tag::all(),
         ]);
+    }
+
+    #[On('code-updated')]
+    public function updateCode($code)
+    {
+        $this->form->example = $code;
     }
 
     public function save()
