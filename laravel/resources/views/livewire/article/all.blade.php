@@ -4,7 +4,7 @@
         <h1 class="p-6 text-gray-900 dark:text-gray-100">
             <a href="{{ route('article.show', ['article' => $article->id]) }}">{{ $article->title }}</a>
         </h1>
-        <div class="mb-3 pl-6">
+        <div class="mb-3 pl-6 flex flex-wrap gap-2">
             @foreach($article->tags as $tag)
             <livewire:tag.individual :key="$article->id.$tag->id" :tag="$tag"/>
             @endforeach
