@@ -4,7 +4,6 @@ use App\Livewire\Article\All as ArticleAll;
 use App\Livewire\Tag\Individual;
 use App\Models\Tag;
 use App\Models\User;
-use Livewire\Livewire;
 
 describe('Dashboard Pages', function() {
     beforeEach(function () {
